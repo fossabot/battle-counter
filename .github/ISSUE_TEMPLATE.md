@@ -4,10 +4,10 @@
 
 - [ ] Using yarn
 - [ ] Using an up-to-date master branch
-- [ ] Using latest version of devtools. See [wiki for howto update](https://github.com/stefanDeveloper/scrum-retroborad/wiki/DevTools)
+- [ ] Using latest version of devtools. See [wiki for howto update](https://github.com/stefanDeveloper/battle-counter/wiki/DevTools)
 - [ ] Link to stacktrace in a Gist (for bugs)
 - [ ] For issue in production release, devtools output of `DEBUG_PROD=true yarn build && yarn start`
-- [ ] Tried solutions mentioned in [#400](https://github.com/stefanDeveloper/scrum-retroborad/issues/400)
+- [ ] Tried solutions mentioned in [#400](https://github.com/stefanDeveloper/battle-counter/issues/400)
 
 ## Expected Behavior
 

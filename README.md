@@ -6,7 +6,7 @@
 <br>
 
 <p align="center">
-A Scalable Cross-Platform Desktop Apps based on  <a href="http://electron.atom.io/">Electron</a>, <a href="https://facebook.github.io/react/">React</a>, <a href="https://github.com/reactjs/redux">Redux</a>, <a href="https://github.com/reactjs/react-router">React Router</a>, <a href="http://webpack.github.io/docs/">Webpack</a> and <a href="https://github.com/gaearon/react-hot-loader">React Hot Loader</a> to enhance the Scrum Retrospective.
+A Scalable Cross-Platform Desktop Apps based on  <a href="http://electron.atom.io/">Electron</a>, <a href="https://facebook.github.io/react/">React</a>, <a href="https://github.com/reactjs/redux">Redux</a>, <a href="https://github.com/reactjs/react-router">React Router</a>, <a href="http://webpack.github.io/docs/">Webpack</a> and <a href="https://github.com/gaearon/react-hot-loader">React Hot Loader</a>.
 </p>
 
 <div align="center">
@@ -90,7 +90,7 @@ See our [complete docs here](https://github.com/stefanDeveloper/battle-counter/w
 
 ## License
 
-MIT © [Scrum Retroboard](https://github.com/stefanDeveloper/battle-counter)
+MIT © [Battle Counter](https://github.com/stefanDeveloper/battle-counter)
 
 [github-tag-image]: https://img.shields.io/github/tag/stefanDeveloper/battle-counter.svg?label=version
 [github-tag-url]: https://github.com/stefanDeveloper/battle-counter/releases/latest
