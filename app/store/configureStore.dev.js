@@ -4,14 +4,14 @@ import { createHashHistory } from 'history';
 import { routerMiddleware, routerActions } from 'connected-react-router';
 import { createLogger } from 'redux-logger';
 import createRootReducer from '../reducers';
-import * as pointsActions from '../actions/points';
-import type { pointStateType } from '../reducers/types';
+import * as gameAction from '../actions/game';
+import type { gameStateType } from '../reducers/types';
 
 const history = createHashHistory();
 
 const rootReducer = createRootReducer(history);
 
-const configureStore = (initialState?: pointStateType) => {
+const configureStore = (initialState?: gameStateType) => {
   // Redux Configuration
   const middleware = [];
   const enhancers = [];
@@ -36,7 +36,7 @@ const configureStore = (initialState?: pointStateType) => {
 
   // Redux DevTools Configuration
   const actionCreators = {
-    ...pointsActions,
+    ...gameAction,
     ...routerActions
   };
   // If Redux DevTools Extension is installed use it, otherwise use Redux compose
