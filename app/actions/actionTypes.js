@@ -4,3 +4,4 @@ export const SET_LINE_BREAKER = 'SET_LINE_BREAKER';
 export const SET_WARLORD = 'SET_WARLORD';
 export const SET_FIRST_BLOOD = 'SET_FIRST_BLOOD';
 export const INCREMENT_TURN = 'INCREMENT_TURN';
+export const CHANGE_INPUT = 'CHANGE_INPUT';

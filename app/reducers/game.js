@@ -12,13 +12,13 @@ export default function game(
 
   switch (action.type) {
     case types.SET_COMMAND_POINTS:
-      newPlayer.commandPoints += action.points;
+      newPlayer.commandPoints += parseInt(action.points, 10);
       return {
         ...state,
         [action.playerType]: newPlayer
       };
     case types.SET_VICTORY_POINTS:
-      newPlayer.victoryPoints += action.points;
+      newPlayer.victoryPoints += parseInt(action.points, 10);
       return {
         ...state,
         [action.playerType]: newPlayer
@@ -44,6 +44,12 @@ export default function game(
     case types.INCREMENT_TURN:
       newState.turn += 1;
       return newState;
+    case types.CHANGE_INPUT:
+      newState.addPoints[action.pointType] = action.points;
+      return {
+        ...state,
+        [action.pointType]: newState
+      };
     default:
       return state;
   }

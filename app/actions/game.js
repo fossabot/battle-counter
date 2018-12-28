@@ -48,3 +48,11 @@ export function incrementTurn() {
     type: types.INCREMENT_TURN
   };
 }
+
+export function changeInput(points, pointType) {
+  return {
+    type: types.CHANGE_INPUT,
+    points,
+    pointType
+  };
+}

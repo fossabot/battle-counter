@@ -7,9 +7,6 @@ export type gameStateType = {
 };
 
 export type Action = {
-  +playerType: string,
-  +points: number,
-  +player: object,
   +type: string
 };
 

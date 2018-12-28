@@ -1,6 +1,10 @@
 export default {
   game: {
     turn: 1,
+    addPoints: {
+      victoryPoints: 0,
+      commandPoints: 0
+    },
     player1: {
       commandPoints: 0,
       victoryPoints: 0,
