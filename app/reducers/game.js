@@ -8,47 +8,54 @@ export default function game(
   action: Action
 ) {
   const newPlayer = Object.assign({}, action.player);
+  const newPoints = parseInt(action.points, 10);
+  const turn = parseInt(action.turn, 10);
   const newState = Object.assign({}, state);
 
   switch (action.type) {
-    case types.SET_COMMAND_POINTS:
-      newPlayer.commandPoints += parseInt(action.points, 10);
+    case types.SET_POINTS:
+      if (Number.isInteger(newPoints) && newPoints >= 0) {
+        newPlayer[action.pointType] = newPoints;
+      }
       return {
         ...state,
         [action.playerType]: newPlayer
       };
-    case types.SET_VICTORY_POINTS:
-      newPlayer.victoryPoints += parseInt(action.points, 10);
+    case types.SET_CARD:
+      newPlayer[action.cardType] = !newPlayer[action.cardType];
       return {
         ...state,
         [action.playerType]: newPlayer
       };
-    case types.SET_LINE_BREAKER:
-      newPlayer.isLineBreaker = !newPlayer.isLineBreaker;
+    case types.SET_PLAYER_NAME:
+      newPlayer.name = action.name;
       return {
         ...state,
         [action.playerType]: newPlayer
       };
-    case types.SET_WARLORD:
-      newPlayer.isWarlord = !newPlayer.isWarlord;
-      return {
-        ...state,
-        [action.playerType]: newPlayer
-      };
-    case types.SET_FIRST_BLOOD:
-      newPlayer.isFirstBlood = !newPlayer.isFirstBlood;
-      return {
-        ...state,
-        [action.playerType]: newPlayer
-      };
-    case types.INCREMENT_TURN:
-      newState.turn += 1;
+    case types.SET_TURN:
+      if (Number.isInteger(turn) && turn > 0) {
+        newState.turn = turn;
+      }
       return newState;
-    case types.CHANGE_INPUT:
-      newState.addPoints[action.pointType] = action.points;
+    case types.INCREMENT_TURN:
+      if (newState.turn > 0) {
+        newState.turn += 1;
+      }
+      return newState;
+    case types.INCREMENT_POINTS:
+      newPlayer[action.pointType] += 1;
       return {
         ...state,
-        [action.pointType]: newState
+        [action.playerType]: newPlayer
+      };
+    case types.DECREMENT_POINTS:
+      if (newPlayer[action.pointType] > 0) {
+        newPlayer[action.pointType] -= 1;
+      }
+      return {
+        ...state,
+        [action.playerType]: newPlayer
       };
     default:
       return state;

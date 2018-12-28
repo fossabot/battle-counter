@@ -1,11 +1,8 @@
 export default {
   game: {
     turn: 1,
-    addPoints: {
-      victoryPoints: 0,
-      commandPoints: 0
-    },
     player1: {
+      name: 'Player 1',
       commandPoints: 0,
       victoryPoints: 0,
       isLineBreaker: false,
@@ -13,6 +10,7 @@ export default {
       isFirstBlood: false
     },
     player2: {
+      name: 'Player 2',
       commandPoints: 0,
       victoryPoints: 0,
       isLineBreaker: false,

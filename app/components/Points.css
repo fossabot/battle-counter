@@ -1,15 +1,15 @@
-/* Game */
-.component {
+/* Points */
+.row-alignment {
   text-align: center;
 }
-.headline {
+
+.input {
+  font-size: 1.75rem;
+  padding-top: 0;
   border: 0 solid;
-  font-size: 2.5rem;
   margin-bottom: 0.5rem;
   font-family: inherit;
   font-weight: 500;
   line-height: 1.2;
   color: inherit;
-  margin-top: 0;
-  text-align: center;
 }

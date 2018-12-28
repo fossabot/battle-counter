@@ -1,9 +1,15 @@
 // @flow
 import React, { Component } from 'react';
-import { Container, Row, ButtonGroup, Button } from 'reactstrap';
+import { Container, Row, ButtonGroup } from 'reactstrap';
 import styles from './Player.css';
 import Points from './Points';
 import { COMMAND_POINT, VICTORY_POINT } from '../constants/PointType';
+import TooltipItem from './TooltipItem';
+import {
+  FIRST_BLOOD_CARD,
+  LINE_BREAKER_CARD,
+  WARLORD_CARD
+} from '../constants/CardType';
 
 type Props = {
   player: {
@@ -13,94 +19,109 @@ type Props = {
     isWarlord: boolean,
     isFirstBlood: boolean
   },
-  addPoints: {
-    victoryPoints: number,
-    commandPoints: number
+  enemy: {
+    isLineBreaker: boolean,
+    isWarlord: boolean,
+    isFirstBlood: boolean
   },
   playerType: string,
   actions: {
-    setCommandPoints: (
+    setPoints: (
+      pointType: string,
       playerType: string,
       player: object,
       points: number
     ) => void,
-    setVictoryPoints: (
+    setCard: (cardType: string, playerType: string, player: object) => void,
+    incrementPoints: (
+      pointType: string,
       playerType: string,
-      player: object,
-      points: number
+      player: object
     ) => void,
-    setLineBreaker: (playerType: string, player: object) => void,
-    setWarlord: (playerType: string, player: object) => void,
-    setFirstBlood: (playerType: string, player: object) => void,
-    changeInput: (points: number, pointType: string) => void
+    decrementPoints: (player: object, playerType: string) => void
   }
 };
 
 export default class Player extends Component<Props> {
   props: Props;
 
-  textChanged(event, pointType) {
+  textChanged(event, pointType, playerType, player) {
     const { value } = event.target;
     const { actions } = this.props;
-    actions.changeInput(value, pointType);
+    actions.setPoints(pointType, playerType, player, value);
   }
 
   render() {
-    const { player, playerType, addPoints, actions } = this.props;
+    const { player, playerType, actions, enemy } = this.props;
     return (
       <Container fluid>
         <Row className={styles.rowPadding}>
           <Points
+            id={playerType + COMMAND_POINT}
             points={player.commandPoints}
-            input={addPoints.commandPoints}
             headline="Command Points"
-            onChange={event => this.textChanged(event, COMMAND_POINT)}
-            add={() =>
-              actions.setCommandPoints(
-                playerType,
-                player,
-                addPoints.commandPoints
-              )
+            onChange={event =>
+              this.textChanged(event, COMMAND_POINT, playerType, player)
+            }
+            increment={() =>
+              actions.incrementPoints(COMMAND_POINT, playerType, player)
+            }
+            decrement={() =>
+              actions.decrementPoints(COMMAND_POINT, playerType, player)
             }
           />
         </Row>
         <Row className={styles.rowPadding}>
-          <ButtonGroup>
-            <Button
-              color="primary"
-              onClick={() => actions.setLineBreaker(playerType, player)}
+          <ButtonGroup className="w-100" size="lg">
+            <TooltipItem
+              id={1 + playerType}
+              icon="fas fa-bomb"
+              tooltip="Line Breaker"
+              placement="top"
+              className="w-100"
+              onClick={() =>
+                actions.setCard(LINE_BREAKER_CARD, playerType, player)
+              }
               active={player.isLineBreaker === true}
-            >
-              Line Breaker
-            </Button>
-            <Button
-              color="primary"
-              onClick={() => actions.setWarlord(playerType, player)}
+              disabled={enemy.isLineBreaker}
+            />
+            <TooltipItem
+              id={2 + playerType}
+              icon="fas fa-skull-crossbones"
+              tooltip="Warlord"
+              placement="top"
+              className="w-100"
+              onClick={() => actions.setCard(WARLORD_CARD, playerType, player)}
               active={player.isWarlord === true}
-            >
-              Warlord
-            </Button>
-            <Button
-              color="primary"
-              onClick={() => actions.setFirstBlood(playerType, player)}
+              disabled={enemy.isWarlord}
+            />
+            <TooltipItem
+              id={3 + playerType}
+              icon="fas fa-fist-raised"
+              tooltip="First Blood"
+              placement="top"
+              className="w-100"
+              onClick={() =>
+                actions.setCard(FIRST_BLOOD_CARD, playerType, player)
+              }
               active={player.isFirstBlood === true}
-            >
-              First Blood
-            </Button>
+              disabled={enemy.isFirstBlood}
+            />
           </ButtonGroup>
         </Row>
         <Row className={styles.rowPadding}>
           <Points
+            id={playerType + VICTORY_POINT}
             points={player.victoryPoints}
-            input={addPoints.victoryPoints}
             headline="Victory Points"
-            onChange={event => this.textChanged(event, VICTORY_POINT)}
-            add={() =>
-              actions.setVictoryPoints(
-                playerType,
-                player,
-                addPoints.victoryPoints
-              )
+            onChange={event =>
+              this.textChanged(event, VICTORY_POINT, playerType, player)
+            }
+            increment={() =>
+              actions.incrementPoints(VICTORY_POINT, playerType, player)
+            }
+            decrement={() =>
+              actions.decrementPoints(VICTORY_POINT, playerType, player)
             }
           />
         </Row>

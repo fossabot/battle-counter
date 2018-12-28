@@ -1,45 +1,38 @@
 // @flow
 import * as types from './actionTypes';
 
-export function setCommandPoints(playerType, player, points) {
+export function setPoints(pointType, playerType, player, points) {
   return {
-    type: types.SET_COMMAND_POINTS,
+    type: types.SET_POINTS,
+    pointType,
     playerType,
     player,
     points
   };
 }
 
-export function setVictoryPoints(playerType, player, points) {
+export function setCard(cardType, playerType, player) {
   return {
-    type: types.SET_VICTORY_POINTS,
+    type: types.SET_CARD,
+    cardType,
     playerType,
+    player
+  };
+}
+
+export function setTurn(turn) {
+  return {
+    type: types.SET_TURN,
+    turn
+  };
+}
+
+export function setPlayerName(player, playerType, name) {
+  return {
+    type: types.SET_PLAYER_NAME,
     player,
-    points
-  };
-}
-
-export function setLineBreaker(playerType, player) {
-  return {
-    type: types.SET_LINE_BREAKER,
     playerType,
-    player
-  };
-}
-
-export function setWarlord(playerType, player) {
-  return {
-    type: types.SET_WARLORD,
-    playerType,
-    player
-  };
-}
-
-export function setFirstBlood(playerType, player) {
-  return {
-    type: types.SET_FIRST_BLOOD,
-    playerType,
-    player
+    name
   };
 }
 
@@ -49,10 +42,20 @@ export function incrementTurn() {
   };
 }
 
-export function changeInput(points, pointType) {
+export function incrementPoints(pointType, playerType, player) {
   return {
-    type: types.CHANGE_INPUT,
-    points,
-    pointType
+    type: types.INCREMENT_POINTS,
+    pointType,
+    playerType,
+    player
+  };
+}
+
+export function decrementPoints(pointType, playerType, player) {
+  return {
+    type: types.DECREMENT_POINTS,
+    pointType,
+    playerType,
+    player
   };
 }

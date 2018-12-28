@@ -1,46 +1,45 @@
 // @flow
 import React, { Component } from 'react';
-import {
-  Container,
-  Row,
-  Button,
-  Input,
-  InputGroupAddon,
-  InputGroup
-} from 'reactstrap';
+import { Container, Row, Input, ButtonGroup, Button, Col } from 'reactstrap';
+import styles from './Points.css';
 
 type Props = {
   points: number,
-  input: string,
   headline: string,
   onChange: () => void,
-  add: () => void
+  increment: () => void,
+  decrement: () => void
 };
 
 export default class Points extends Component<Props> {
   props: Props;
 
   render() {
-    const { points, input, headline, onChange, add } = this.props;
+    const { points, headline, onChange, increment, decrement } = this.props;
     return (
       <Container fluid>
-        <Row>
-          <h3>{headline}</h3>
-          <hr className="my-2" />
-          <h3>{points}</h3>
-          <InputGroup>
+        <Row style={{ margin: '.5rem' }}>
+          <Col sm="4" md="6">
+            <h3 className="text-wrap">{headline}</h3>
+          </Col>
+          <Col sm="2" md="4">
             <Input
               type="number"
-              value={input}
-              placeholder="points"
+              className={styles.input}
+              value={points}
               onChange={onChange}
             />
-            <InputGroupAddon addonType="prepend">
-              <Button color="primary" onClick={add}>
-                Add
+          </Col>
+          <Col md="2">
+            <ButtonGroup>
+              <Button color="success" onClick={increment}>
+                <i className="fas fa-plus" />
               </Button>
-            </InputGroupAddon>
-          </InputGroup>
+              <Button color="danger" onClick={decrement}>
+                <i className="fas fa-minus" />
+              </Button>
+            </ButtonGroup>
+          </Col>
         </Row>
       </Container>
     );
