@@ -28,6 +28,7 @@ A Scalable Cross-Platform Desktop Apps based on  <a href="http://electron.atom.i
 <a href="http://eslint.org/"><img src="./internals/img/eslint-padded-90.png" /></a>
 <a href="https://facebook.github.io/jest/"><img src="./internals/img/jest-padded-90.png" /></a>
 <a href="https://yarnpkg.com/"><img src="./internals/img/yarn-padded-90.png" /></a>
+<a href="https://app.fossa.io/projects/git%2Bgithub.com%2FstefanDeveloper%2Fbattle-counter?ref=badge_shield" alt="FOSSA Status"><img src="https://app.fossa.io/api/projects/git%2Bgithub.com%2FstefanDeveloper%2Fbattle-counter.svg?type=shield"/></a>
 
 </div>
 
@@ -96,3 +97,6 @@ MIT © [Battle Counter](https://github.com/stefanDeveloper/battle-counter)
 [github-tag-url]: https://github.com/stefanDeveloper/battle-counter/releases/latest
 [good-first-issue-image]: https://img.shields.io/github/issues/stefanDeveloper/battle-counter/good%20first%20issue.svg?label=good%20first%20issues
 [good-first-issue-url]: https://github.com/stefanDeveloper/battle-counter/issues?q=is%3Aopen+is%3Aissue+label%3A"good+first+issue"
+
+
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2FstefanDeveloper%2Fbattle-counter.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2FstefanDeveloper%2Fbattle-counter?ref=badge_large)
